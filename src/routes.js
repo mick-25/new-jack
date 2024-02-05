@@ -185,10 +185,9 @@ const { dirname } = import.meta;
 routes.use("/", express.static(`${dirname}/frontend`));
 
 routes.get("/configure", async (req, res) => {
-    const templatePath = `${dirname}/frontend/configure/index.hbs`;
-    const template = handlebars.compile(readFileSync(templatePath, "utf8"));
+	const template = handlebars.compile(readFileSync(`${dirname}/frontend/configure/index.hbs`, "utf8"));
 
-    res.send(template({ version }));
+	res.send(template({ version }));
 });
 
 routes.get("/scraper", async (req, res) => {
