@@ -8,7 +8,7 @@
     "buildscraper": "node esbuild.scraper.js",
     "dev": "tsx watch --ignore node_modules src/index.js",
     "prepare": "husky",
-    "start": "node src/index.js",  // Updated start script
+    "start": "node src/index.js",
     "startscraper": "node dist/scraper/index.cjs",
     "bscrape": "node esbuild.js"
   },
