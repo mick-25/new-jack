@@ -11,6 +11,7 @@ import { getName } from "./helpers/getName";
 import { getNum } from "./helpers/getNum";
 import fetchResults from "./jackett/index";
 import { subpath } from "./index";
+import path from 'path';
 
 const routes = Router();
 
@@ -185,9 +186,10 @@ const { dirname } = import.meta;
 routes.use("/", express.static(`${dirname}/frontend`));
 
 routes.get("/configure", async (req, res) => {
-	const template = handlebars.compile(readFileSync(`${dirname}/frontend/configure/index.hbs`, "utf8"));
+  const templatePath = path.join(__dirname, 'frontend', 'configure', 'index.hbs');
+  const template = handlebars.compile(readFileSync(templatePath, 'utf8'));
 
-	res.send(template({ version }));
+  res.send(template({ version }));
 });
 
 routes.get("/scraper", async (req, res) => {
