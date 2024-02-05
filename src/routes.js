@@ -192,7 +192,8 @@ routes.get("/configure", async (req, res) => {
 
 routes.get("/scraper", async (req, res) => {
     const templatePath = `${dirname}/frontend/configure/scraper.hbs`;
-    const template = handlebars.compile(readFileSync(templatePath, "utf8"));
+    const template = handlebars.compile(readFileSync(`${__dirname}/frontend/configure/index.hbs`, "utf8"));
+
 
     res.send(template({ version }));
 });
